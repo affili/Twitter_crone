@@ -54,7 +54,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/register') }}">Sign inr</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -80,9 +80,12 @@
         <div class="jumbotron no-bottom"></div>
     </nav>
 
+    <!-- twitter contents-->
+
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header col-md-2">
+                <img src="{{ asset('/image/default.png') }}" style="width: 60px; height: 60px; float: left; border-radius: 50%; margin-right: 20px; margin-top: 6px;">
                 <a href="{{ url('/' . $user->username) }}">
                     <h4><strong>{{ $user->name or 'Full Name' }}</strong></h4>
                 </a>

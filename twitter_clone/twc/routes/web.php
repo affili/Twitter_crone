@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/{username}', 'ProfileController@show');
 
+
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/{username}/following', 'ProfileController@following')->name('following');
     Route::post('/follows', 'UserController@follows');
