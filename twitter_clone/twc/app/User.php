@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Patter;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,7 +32,7 @@ class User extends Authenticatable
      */
     public function following()
     {
-        return $this->belongsToMany('App\User', 'followers', 'follower_user_id', 'user_id')->withTimestamps();
+        return $this->belongsToMany('Patter\User', 'followers', 'follower_user_id', 'user_id')->withTimestamps();
     }
     public function isFollowing(User $user)
     {
@@ -44,6 +44,6 @@ class User extends Authenticatable
      */
     public function followers()
     {
-        return $this->belongsToMany('App\User', 'followers', 'user_id', 'follower_user_id')->withTimestamps();
+        return $this->belongsToMany('Patter\User', 'followers', 'user_id', 'follower_user_id')->withTimestamps();
     }
 }

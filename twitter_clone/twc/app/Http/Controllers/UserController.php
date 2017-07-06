@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Patter\Http\Controllers;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Auth;
-use App\User;
+use Patter\User;
 
 class UserController extends Controller
 {
