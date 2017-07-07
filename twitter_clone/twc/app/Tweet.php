@@ -1,11 +1,10 @@
 <?php
-
-namespace App;
-// namespace Patter;
+namespace Patter;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Tweet extends Model
 {
-    protected $guraded = [];
+    protected $guarded = ['id', 'created_at'];
+    // protected $fillable = ['body'];
 }

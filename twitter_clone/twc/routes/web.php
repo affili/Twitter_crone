@@ -10,11 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
-
+*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -33,3 +33,7 @@ Route::group(['middleware' => 'auth'], function (){
 });
 Route::get('/{username}', 'ProfileController@show')->name('profile');
 Route::get('/{username}/followers', 'ProfileController@followers')->name('followers');
+
+Route::get('/', 'TweetsController@index');
+Route::get('/tweets/create', 'TweetsController@create');
+Route::post('/tweets', 'TweetsController@store');

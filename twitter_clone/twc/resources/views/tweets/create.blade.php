@@ -5,7 +5,7 @@
 {{ csrf_field()}}
   <fieldset>
     <legend>Tweet</legend>
-    <input type="text-area" placeholder="Type something…">
+    <input type="text-area" name="body" placeholder="Type something…"> `
     <button type="submit" class="btn">Submit</button>
   </fieldset>
 </form>

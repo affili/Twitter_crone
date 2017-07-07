@@ -3,15 +3,15 @@
 namespace Patter\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tweet;
+use Patter\Tweet;
 
 
 class TweetsController extends Controller
 {
     public function index()
     {
-
-        return view('tweets.index');
+        $tweets = Tweet::all();
+        return view('tweets.index', compact('tweets'));
     }
 
     public function create()
@@ -19,11 +19,15 @@ class TweetsController extends Controller
         return view('tweets.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        Tweet::create(request(['body']));
+        Tweet::create($request->all());
+        // dump($request['test']);
+        // Tweet::create(
+        //     request()->all()
+        // );
 
-        return view('/');
+        return redirect('/');
     }
 
     public function show($id)
