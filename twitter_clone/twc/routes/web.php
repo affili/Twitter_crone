@@ -37,3 +37,4 @@ Route::get('/{username}/followers', 'ProfileController@followers')->name('follow
 Route::get('/', 'TweetsController@index');
 Route::get('/tweets/create', 'TweetsController@create');
 Route::post('/tweets', 'TweetsController@store');
+Route::get('/tweets/{tweet}', 'TweetsController@show');

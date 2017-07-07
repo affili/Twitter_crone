@@ -10,7 +10,7 @@ class TweetsController extends Controller
 {
     public function index()
     {
-        $tweets = Tweet::all();
+        $tweets = Tweet::orderBy('created_at', 'desc')->get();
         return view('tweets.index', compact('tweets'));
     }
 
@@ -22,28 +22,19 @@ class TweetsController extends Controller
     public function store(Request $request)
     {
         Tweet::create($request->all());
-        // dump($request['test']);
-        // Tweet::create(
-        //     request()->all()
-        // );
-
         return redirect('/');
     }
 
     public function show($id)
     {
-        return view('/');
+        $tweet = Tweet::find($id);
+        return view('tweets.show', compact('tweet'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $tweet = Tweet::findOrFail($id);
+        return view('tweets.edit', compact('tweet'));
     }
 
     /**

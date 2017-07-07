@@ -1,7 +1,6 @@
-
-      <div class="container">
-        <div class="page-header">
-          <h1>Tweet</h1>
-        </div>
-        <p class="lead">{{$tweet->body}}</p>
-      </div>
+@extends('layouts.app')
+@section('content')
+<h1>Tweet</h1>
+<p class="lead">{{ $tweet->created_at->toFormattedDateString() }}</p>
+<p class="lead">{{ $tweet->body }}</p>
+@endsection('content')
