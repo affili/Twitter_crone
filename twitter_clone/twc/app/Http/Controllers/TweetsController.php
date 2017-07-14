@@ -14,7 +14,6 @@ class TweetsController extends Controller
     {
         $user_id = Auth::id();
         $tweets = Tweet::orderBy('created_at', 'desc')->get();
-        dump($tweets);
         return view('tweets.index', compact('tweets'));
     }
 
@@ -30,6 +29,8 @@ class TweetsController extends Controller
         DB::table('tweets')->insert([
               'body' => $request['body'],
               'user_id' => $user_id,
+              'created_at'=>$request['created_at'],
+              'updated_at'=>$request['updated_at'],
         ]);
         return redirect('/');
     }
@@ -66,6 +67,9 @@ class TweetsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tweet = Tweet::find($id);
+        $tweet->delete($id);
+        \Session::flash('flash_message', '削除しました。');
+        return redirect('/');
     }
 }
