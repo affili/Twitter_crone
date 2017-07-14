@@ -14,12 +14,19 @@
           <h1>Tweet</h1>
         </div>
         @foreach($tweets as $tweet)
-        <p class="lead">{{ $tweet->created_at}}</p> 
-        <p class="lead">{{ $tweet->user->username }}</p> 
-        <p class="lead">{{ $tweet->user->avatar }}</p>
         <a href="/tweets/{{ $tweet->id }}">
-        <p class="lead">{{ $tweet->body }}</p>
-        </a>
+        <table class="table table-striped">
+          <tr>
+            <td rowspan="2" width="70px"><img src="{{ asset('/image/default.jpg') }}" style="width: 70px; height: 70px; float: left; border-radius: 50%; margin-right: 40px; margin-top: 6px;"></td>
+            <td>{{ $tweet->user->username }}</td>
+            <td>{{ $tweet->created_at}}</td>
+          </tr>
+          <tr>
+            <td width="5px"></td>
+            <td>{{ $tweet->body }}</td>
+          <tr>
+          </a>
+        </table>
         @endforeach
 
       </div>
