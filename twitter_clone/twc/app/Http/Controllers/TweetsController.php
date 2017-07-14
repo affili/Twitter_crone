@@ -1,7 +1,7 @@
 <?php
 
 namespace Patter\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use Patter\Tweet;
 
@@ -21,7 +21,11 @@ class TweetsController extends Controller
 
     public function store(Request $request)
     {
-        Tweet::create($request->all());
+        DB::table('tweets')->insert([
+              'body' => $request['body'],
+              'user_id' => $user_id,
+        ]);
+        // Tweet::create($request->all());
         return redirect('/');
     }
 

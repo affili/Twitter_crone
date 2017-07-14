@@ -50,6 +50,6 @@ class User extends Authenticatable
         public function tweets()
     {
         // 記事を新しい順で取得する
-        return $this->hasMany('Patter\tweets', 'foreign_key', 'other_key');
+        return $this->hasMany('Patter\tweets', 'foreign_key');
     }
 }
