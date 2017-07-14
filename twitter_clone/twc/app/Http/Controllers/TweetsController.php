@@ -4,7 +4,7 @@ namespace Patter\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use Patter\Tweet;
-use Patter\Http\Controllers\Auth;
+
 
 
 class TweetsController extends Controller
@@ -22,7 +22,6 @@ class TweetsController extends Controller
 
     public function store(Request $request)
     {
-        $user_id = Auth::id();
         DB::table('tweets')->insert([
               'body' => $request['body'],
               'user_id' => $user_id,
