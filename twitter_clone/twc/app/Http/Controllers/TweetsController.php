@@ -3,6 +3,7 @@
 namespace Patter\Http\Controllers;
 use DB;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Patter\Tweet;
 
@@ -29,7 +30,7 @@ class TweetsController extends Controller
         DB::table('tweets')->insert([
               'body' => $request['body'],
               'user_id' => $user_id,
-              'created_at'=>$request['created_at'],
+              'created_at'=>Carbon::now(),
               'updated_at'=>$request['updated_at'],
         ]);
         return redirect('/');
