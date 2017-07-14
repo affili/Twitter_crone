@@ -10,6 +10,6 @@ class Tweet extends Model
     // protected $fillable = ['body'];
 
     public function user(){
-        return $this->belongsTo('Patter\User');
+        return $this->belongsTo('Patter\User', 'foreign_key');
     }
 }

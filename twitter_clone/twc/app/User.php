@@ -47,9 +47,9 @@ class User extends Authenticatable
         return $this->belongsToMany('Patter\User', 'followers', 'user_id', 'follower_user_id')->withTimestamps();
     }
 
-    public function tweets()
-{
-    // 記事を新しい順で取得する
-    return $this->hasMany('Patter\tweets');
-}
+        public function tweets()
+    {
+        // 記事を新しい順で取得する
+        return $this->hasMany('Patter\tweets', 'foreign_key', 'other_key');
+    }
 }
