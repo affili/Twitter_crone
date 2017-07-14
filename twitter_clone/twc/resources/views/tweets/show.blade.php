@@ -8,12 +8,15 @@
         <div class="page-header">
           <h1>Tweet</h1>
         </div>
-            <form method="POST" action="/tweets/{$id}">
                 <p class="lead">{{ $tweet->created_at}}</p>
                 <p class="lead">{{ $tweet->user->username }}</p> 
+                <p class="lead">{{ $tweet->user->avatar }}</p> 
                 <p class="lead">{{ $tweet->body }}</p>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </form>
+               @component('layouts.form-del')
+                    @slot('controller', 'tweets')
+                    @slot('id', $tweet->id)
+                    @slot('name', $tweet->body)
+              @endcomponent
       </div>
     </div>
 @endsection('content')

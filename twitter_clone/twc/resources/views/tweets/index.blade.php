@@ -16,6 +16,7 @@
         @foreach($tweets as $tweet)
         <p class="lead">{{ $tweet->created_at}}</p> 
         <p class="lead">{{ $tweet->user->username }}</p> 
+        <p class="lead">{{ $tweet->user->avatar }}</p>
         <a href="/tweets/{{ $tweet->id }}">
         <p class="lead">{{ $tweet->body }}</p>
         </a>
