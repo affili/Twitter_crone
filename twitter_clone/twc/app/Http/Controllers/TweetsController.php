@@ -2,6 +2,7 @@
 
 namespace Patter\Http\Controllers;
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 use Patter\Tweet;
 
@@ -11,7 +12,9 @@ class TweetsController extends Controller
 {
     public function index()
     {
+        $user_id = Auth::id();
         $tweets = Tweet::orderBy('created_at', 'desc')->get();
+        dump($tweets);
         return view('tweets.index', compact('tweets'));
     }
 
@@ -22,6 +25,8 @@ class TweetsController extends Controller
 
     public function store(Request $request)
     {
+        
+        $user_id = Auth::id();
         DB::table('tweets')->insert([
               'body' => $request['body'],
               'user_id' => $user_id,

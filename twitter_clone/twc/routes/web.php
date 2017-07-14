@@ -34,7 +34,10 @@ Route::group(['middleware' => 'auth'], function (){
 Route::get('/{username}', 'ProfileController@show')->name('profile');
 Route::get('/{username}/followers', 'ProfileController@followers')->name('followers');
 
-Route::get('/', 'TweetsController@index');
-Route::get('/tweets/create', 'TweetsController@create');
-Route::post('/tweets', 'TweetsController@store');
-Route::get('/tweets/{tweet}', 'TweetsController@show');
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/', 'TweetsController@index');
+    Route::get('/tweets/create', 'TweetsController@create');
+    Route::post('/tweets', 'TweetsController@store');
+    Route::get('/tweets/{tweet}', 'TweetsController@show');
+    Route::delete('/tweets/{$id}', 'TweetsController@destroy');
+});
