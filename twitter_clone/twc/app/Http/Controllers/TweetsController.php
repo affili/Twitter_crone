@@ -31,7 +31,6 @@ class TweetsController extends Controller
               'body' => $request['body'],
               'user_id' => $user_id,
         ]);
-        // Tweet::create($request->all());
         return redirect('/');
     }
 
