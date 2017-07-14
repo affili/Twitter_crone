@@ -43,8 +43,7 @@ class TweetsController extends Controller
 
     public function edit($id)
     {
-        $tweet = Tweet::findOrFail($id);
-        return view('tweets.edit', compact('tweet'));
+        // 
     }
 
     /**

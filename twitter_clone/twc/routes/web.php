@@ -39,5 +39,5 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/tweets/create', 'TweetsController@create');
     Route::post('/tweets', 'TweetsController@store');
     Route::get('/tweets/{tweet}', 'TweetsController@show');
-    Route::delete('/tweets/{$id}', 'TweetsController@destroy');
+    Route::delete('/tweets/{tweet}', 'TweetsController@destroy');
 });
