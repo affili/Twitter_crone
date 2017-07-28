@@ -2,6 +2,8 @@
 
 namespace Patter\Http\Controllers;
 use DB;
+use Image;
+use Storage;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,9 +32,23 @@ class TweetsController extends Controller
         DB::table('tweets')->insert([
               'body' => $request['body'],
               'user_id' => $user_id,
+              'fileName' => $request['fileName']->getClientOriginalName(),
               'created_at'=>Carbon::now(),
               'updated_at'=>$request['updated_at'],
         ]);
+
+        $input = $request->all();
+
+        //getClientOriginalName():アップロードしたファイルのオリジナル名を取得します
+        $fileName = $input['fileName']->getClientOriginalName();
+        $file = $request->file('image');
+        //getRealPath():アップロードしたファイルのパスを取得します。
+        $image = Image::make($input['fileName']->getRealPath());
+        $path = public_path().$image;
+        $image->save(public_path() . '/image/toukou/'. $fileName);
+        //画像を保存する
+        // $image->save($fileName);   #(2)
+
         return redirect('/');
     }
 

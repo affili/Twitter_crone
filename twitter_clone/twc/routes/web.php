@@ -41,3 +41,4 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/tweets/{tweet}', 'TweetsController@show');
     Route::delete('/tweets/{tweet}', 'TweetsController@destroy');
 });
+Route::resource('photos', 'PhotoController');

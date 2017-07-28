@@ -8,14 +8,18 @@
         <div class="page-header">
           <h1>Create Tweet</h1>
         </div>
-        <form method="POST" action="/tweets">
-        {{ csrf_field()}}
-          <fieldset>
-            <legend>Tweet</legend>
-            <input type="text-area" name="body" placeholder="Type something…"> `
-            <button type="submit" class="btn">Submit</button>
-          </fieldset>
-        </form>
+
+        {!! Form::open(['url' => 'tweets', 'files' => true, 'method' => 'post']) !!}
+        <div class='form-group'>
+          {!! Form::label('body', 'Body') !!}
+          {!! Form::text('body', null, ['class' => 'form-control']) !!}
+        </div>
+        {!! Form::label('fileName', 'アップロード') !!}
+        {!! Form::file('fileName') !!}
+        <div class='form-group'>
+          {!! Form::submit('Tweet', ['class' => 'btn btn-primary form-control']) !!}
+        </div>
+        {!! Form::close() !!}
       </div>
     </div>
 @endsection('content')

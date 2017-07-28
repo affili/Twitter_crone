@@ -22,9 +22,10 @@
             <td>{{ $tweet->created_at}}</td>
           </tr>
           <tr>
-            <td width="5px"></td>
             <td>{{ $tweet->body }}</td>
-          <tr>
+            
+            <td><img src="{{ asset('/image/toukou/'.$tweet->fileName) }}"></td>
+          </tr>
           </a>
         </table>
         @endforeach
