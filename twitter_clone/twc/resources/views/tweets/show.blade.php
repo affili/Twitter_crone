@@ -17,7 +17,7 @@
           <tr>
             <td width="5px"></td>
             <td>{{ $tweet->body }}</td>
-            <td><img src="{{ asset('/image/toukou/'.$tweet->fileName) }}"></td>
+            <td width="40%"><img src="{{ asset('/image/toukou/'.$tweet->fileName) }}" style="width:100%;"></td>
           <tr>
         </table>
                @component('layouts.form-del')
